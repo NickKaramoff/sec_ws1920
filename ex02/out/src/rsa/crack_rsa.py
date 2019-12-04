@@ -1,7 +1,7 @@
 import argparse
 
 
-def modular_inverse(num: int, m: int) -> int:
+def modular_inverse(num, m):
     """
     Calculates the modular inverse of a number with a given modulus
 
@@ -30,12 +30,12 @@ def modular_inverse(num: int, m: int) -> int:
     return lx
 
 
-def euler_phi(modulus: int) -> int:
+def euler_phi(modulus):
     """
     Calculates the value of the Euler totient function for a given number
 
     :param modulus: number to find the Euler function value
-    :return: φ(given number)
+    :return: phi(given number)
     """
     result = modulus
     p = 2
