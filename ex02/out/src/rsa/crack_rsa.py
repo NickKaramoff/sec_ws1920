@@ -1,30 +1,42 @@
 import argparse
 
 
-def extended_euclidian(a: int, b: int) -> (int, int, int):
+def modular_inverse(num: int, m: int) -> int:
     """
-    Calculates the gcd of two numbers as well as quotients ``x`` and ``y`` such,
-    that ``ax + by = gcd(a,b)``
+    Calculates the modular inverse of a number with a given modulus
 
-    :param a: number
-    :param b: number
-    :return: tuple of gcd(a,b), x and y
+    :param num: number to find modular inverse for
+    :param m: number to regard as mod
+    :return: modular inverse for num (mod m)
     """
 
     x = 0
     y = 1
+    lx = 1
+    ly = 0
+    oa = num
+    ob = m
 
-    if a == 0:
-        return b, x, y
+    while m != 0:
+        q = num // m
+        (num, m) = (m, num % m)
+        (x, lx) = ((lx - (q * x)), x)
+        (y, ly) = ((ly - (q * y)), y)
 
-    g, x_1, y_1 = extended_euclidian(b % a, a)
-    x = y_1 - (b // a) * x_1
-    y = x_1
-
-    return g, x, y
+    if lx < 0:
+        lx += ob
+    if ly < 0:
+        ly += oa
+    return lx
 
 
 def euler_phi(modulus: int) -> int:
+    """
+    Calculates the value of the Euler totient function for a given number
+
+    :param modulus: number to find the Euler function value
+    :return: φ(given number)
+    """
     result = modulus
     p = 2
 
@@ -56,6 +68,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     phi_n = euler_phi(args.modulus)
-    decr_key = phi_n + extended_euclidian(args.exponent, phi_n)[1]
+    decr_key = modular_inverse(args.exponent, phi_n)
     message = (args.ciphertext ** decr_key) % args.modulus
     print(message)
