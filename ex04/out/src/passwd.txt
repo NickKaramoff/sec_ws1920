@@ -1,0 +1,10 @@
+alice:z3b6pOSKgNjmY:1:1:user:/bin/sh:/root
+bob:dSzcj8ntF56.M:1:1:user:/bin/sh:/root
+carol:9TyLFU8x5IRkc:1:1:user:/bin/sh:/root
+dave:EHkBoy4LwSN/E:1:1:user:/bin/sh:/root
+eve:ehEafjqem6d6o:1:1:user:/bin/sh:/root
+frank:pibNUtTOFXDlg:1:1:user:/bin/sh:/root
+greg:4hIBTGlD2foxs:1:1:user:/bin/sh:/root
+john:8zewKgb9jOiUk:1:1:user:/bin/sh:/root
+kelly:avwP9H5B9Epqo:1:1:user:/bin/sh:/root
+norman:S2gODhW.AkVZE:1:1:user:/bin/sh:/root
