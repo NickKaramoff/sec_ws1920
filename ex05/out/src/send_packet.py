@@ -22,7 +22,7 @@ def chksum(packet: bytes) -> int:
     return res & 0xffff
 
 
-class IPTCPPacket:
+class TCPPacket:
     def __init__(self,
                  src_host: str,
                  src_port: int,
@@ -140,7 +140,7 @@ if __name__ == '__main__':
     elif args.fin:
         use_flags.append('fin')
 
-    pak = IPTCPPacket(
+    pak = TCPPacket(
         socket.gethostbyname(socket.gethostname()),
         20,
         socket.gethostbyname(args.host),
